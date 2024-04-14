@@ -1,0 +1,34 @@
+﻿@model Customer
+@{
+    ViewBag.Title = "Add";
+    Layout = "_Layout";
+}
+
+
+<form asp-controller="Customer" asp-action="Add" enctype="multipart/form-data">
+        @*
+            using table to align input fields 
+        *@
+        <table>
+            <tr> <td> <label asp-for="FirstName"></label> </td>
+                 <td> <input asp-for="FirstName" /> </td> 
+            </tr>
+            <tr>
+                <td> <label asp-for="LastName"></label> </td>
+                <td> <input asp-for="LastName" /> </td>
+            </tr>
+            <tr>
+                <td> <label asp-for="Address"></label> </td>
+                <td> <input asp-for="Address" /> </td>
+            </tr>
+
+            <tr>
+                <td> <label asp-for="PhoneNumber"></label> </td>
+                <td> <input asp-for="PhoneNumber" /> </td>
+            </tr>
+
+        </table>
+
+        <input type="submit" value="Create"/>
+    </form>
+

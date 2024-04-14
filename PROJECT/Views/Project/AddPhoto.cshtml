@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Create Project";
+    Layout = "_Layout";
+}
+
+<style>
+    .images {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        margin-inline: 10%;
+        max-width: 80%;
+    }
+
+        .images img {
+            margin: 1em;
+            width: 300px;
+            height: 300px;
+        }
+
+    .input {
+        margin-inline: 5%;
+        margin-top: 5%;
+    }
+</style>
+
+<div class="images">
+    @if (ViewBag.Images != null)
+    {
+
+
+        @foreach (string img in ViewBag.Images)
+        {
+            <img src="@img" />
+        }
+
+    }
+</div>
+
+<form asp-action="AddPhotoHelper" asp-controller="Project" method="post" enctype="multipart/form-data" class="input">
+
+    <input type="file" id="ImageData" name="ImageData" />
+    <button type="submit">Add Photo for Home</button>
+
+</form>
+
+

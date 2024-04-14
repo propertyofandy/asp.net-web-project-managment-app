@@ -1,0 +1,63 @@
+﻿@model PROJECT.ViewModels.RegisterViewModel;
+
+@{
+    ViewBag.Title = "Register"; 
+    Layout = "_Layout";
+}
+
+<h1>Register</h1>
+
+<form asp-action="Register" asp-controller="Account" name="theForm" onsubmit="return Validate()">
+    <div asp-validation-summary="All"></div>
+
+    <table>
+        <tr>
+            <td><label asp-for="FirstName"></label></td>
+            <td><input asp-for="FirstName"/> </td>
+        </tr>
+        <tr>
+            <td><label asp-for="LastName"></label></td>
+            <td><input asp-for="LastName" /> </td>
+        </tr>
+        <tr>
+            <td><label asp-for="Email"></label></td>
+            <td><input asp-for="Email" /> </td>
+        </tr>
+        <tr>
+            <td><label asp-for="UserName"></label></td>
+            <td><input asp-for="UserName" /> </td>
+        </tr>
+        <tr>
+            <td><label asp-for="Password"></label></td>
+            <td><input type="password"  asp-for="Password" id="p1" /> </td>
+        </tr>
+        <tr>
+            <td><label asp-for="RePassword"></label></td>
+            <td><input type="password" asp-for="RePassword" id="p2"/> </td>
+        </tr>
+        <tr>
+            <td><label asp-for="RememberMe"></label></td>
+            <td><input asp-for="RememberMe" /> </td>
+        </tr>
+    </table>
+
+    <input type="submit" value="Register"  />
+
+</form>
+
+<script>
+    <!-- 
+    function Validate(){
+        var p1 = document.getElementById('p1').value;
+        var p2 = document.getElementById('p2').value;
+
+
+        if (p1 === p2) {
+            return true;
+        }
+        alert("password is invalide");
+        return false;
+    }
+    -->
+</script>
+

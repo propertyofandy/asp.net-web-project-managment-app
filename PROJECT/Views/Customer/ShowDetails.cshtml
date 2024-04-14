@@ -1,0 +1,26 @@
+﻿@using PROJECT.Models
+@model Customer
+@{
+    ViewBag.Title = "Show";
+    Layout = "_Layout";
+}
+
+
+@if (Model is null)
+{
+    <h1>DNE Try again or dont </h1>
+}
+else
+{
+    @if (ViewBag.custPhoto != null) { 
+        <img src="@ViewBag.custPhoto" height="100"/>
+        
+    }
+    <h1>Name: @Model.FirstName @Model.LastName</h1>
+        <h2>ID: @Model.Id</h2>
+       <h2>Balance: @ViewBag.balance</h2>
+        <h2>Phone Number: @Model.PhoneNumber</h2>
+        <h2>Adress: @Model.Address</h2> 
+
+    }
+

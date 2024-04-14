@@ -1,0 +1,33 @@
+﻿@model IEnumerable<Customer>
+@{
+    ViewBag.Title = "Delete";
+    Layout = "_Layout";
+}
+
+
+   
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Address</th>
+            <th scope="col">Phone Number</th>
+            <th scope="col">Delete</th>
+        </thead>
+        <tbody>
+            @foreach(Customer c in Model)
+            {
+                <tr>
+                    <td>@c.Id</td>
+                    <td>@c.FirstName @c.LastName</td>
+                    <td>@c.Address</td>
+                    <td>@c.PhoneNumber</td>
+                    <td>
+                        <a class="btn btn-danger" onclick="return confirm('@c.FirstName will be deleted')" asp-controller="Customer" asp-action="DeleteAction" asp-route-id="@c.Id">
+                            Delete
+                        </a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>

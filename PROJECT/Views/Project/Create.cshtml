@@ -1,0 +1,37 @@
+﻿@model Projects
+
+@{
+    ViewBag.Title = "Create Project";
+    Layout = "_Layout";
+}
+
+
+
+<form asp-controller="Project" asp-action="Create" >
+    @*
+    using table to align input fields
+    *@
+    <table>
+        <tr>
+            <td> <label asp-for="ProjType" >  </label> </td>
+            <td> <select asp-for="ProjType" asp-items="@Html.GetEnumSelectList(typeof(ProjectType))"></select> </td>
+        </tr>
+        <tr>
+            <td> <label asp-for="IsComplete"></label> </td>
+            <td> <input asp-for="IsComplete" /> </td>
+        </tr>
+        <tr>
+            <td> <label asp-for="OrderedDate"></label> </td>
+            <td> <input asp-for="OrderedDate" required /> </td>
+        </tr>
+
+        <tr>
+            <td> <label asp-for="Cost"></label> </td>
+            <td> <input asp-for="Cost" required /> </td>
+        </tr>
+
+        <td> <input type="hidden" asp-for="CustomerId" value="@ViewBag.Id" /></td>
+
+    </table>
+    <input type="submit" value="Create"/>
+</form>

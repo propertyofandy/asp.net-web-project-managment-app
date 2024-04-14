@@ -1,0 +1,41 @@
+﻿@model Customer
+@{
+    ViewBag.Title = "Edit";
+    Layout = "_Layout";
+}
+
+
+    <div asp-validation-summary="All"></div>
+
+    @if(Model != null)
+    {
+        <form asp-action="Edit" method="post">
+            <label asp-for="FirstName" hidden></label>
+            <input asp-for="FirstName" hidden/>
+            <label asp-for="LastName" hidden></label>
+            <input asp-for="LastName" hidden />
+        <table>
+            <tr> 
+                <td><label asp-for="Address"></label></td>
+                <td><input asp-for="Address"/></td> 
+            </tr>
+            <tr>
+                <td><label asp-for="PhoneNumber"></label></td>
+                <td><input asp-for="PhoneNumber"/></td>
+            </tr>
+
+        </table>
+
+         <input type="hidden" asp-for="Id" value="@Model.Id"/>
+        <input type="submit" value="Update"/>
+        </form>
+    }
+    else
+    {
+        <h1>Search for Customer</h1>
+        <form asp-action="GetEdit" method="post">
+            <label asp-for="Id"></label> <input asp-for="Id"/>
+            <input type="submit" value="Search"/>
+        </form>
+    }
+

@@ -1,0 +1,49 @@
+/*making custom color variables so that colors 
+only need to be changed in one place*/
+:root {
+    --footerBackground: #343a40;
+}
+
+html {
+    margin: 0%;
+    padding-bottom -1em;
+    overflow-x:hidden;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: red;
+}
+
+#rendered {
+    background-color: white;
+    min-height: 96vh; 
+}
+
+footer {
+    margin: 0;
+    color: white;
+    background-color: var(--footerBackground);
+    width: 100%;
+    padding: 1rem; 
+}
+
+footer a{
+    color: white; 
+}
+
+footer p {
+    text-align: center;
+}
+
+.footStuff ul {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+
+}
+
+
+/*<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/

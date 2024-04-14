@@ -1,0 +1,30 @@
+﻿@model PROJECT.ViewModels.LoginViewModel;
+
+@{
+    ViewBag.Title = "Login";
+    Layout = "_Layout";
+}
+
+<h1>Login</h1>
+
+<form asp-controller="Account" asp-action="Login">
+    <div asp-validation-summary="ModelOnly"></div>
+    <table>
+        <tr>
+            <td><label asp-for="UserName"></label></td>
+            <td><input asp-for="UserName" /></td>
+        </tr>
+        <tr>
+            <td><label asp-for="Password"></label></td>
+            <td><input type="password" asp-for="Password"/></td>
+        </tr>
+        <tr>
+            <td><label asp-for="RememberMe"></label></td>
+            <td><input asp-for="RememberMe"/></td>
+        </tr>
+    </table>
+    <input type="submit" value="Login"/>
+</form>
+<br />
+<a class="btn btn-outline-success" asp-action="Register" asp-controller="Account">Sign up</a>
+

@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Projects>
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Projects";
+}
+<h1>Projects</h1>
+<table class="table table-hover">
+    <thead class="table-dark">
+        <tr>
+            <th scope="col">Project Type</th>
+            <th scope="col">Is Completed</th>
+            <th scope="col">Date Ordered</th>
+            <th scope="col">Cost</th>
+            <th scope="col">Edit</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if(Model.Count() == 0)
+        {
+            <h1>No Projects To Display</h1>
+        }
+        else
+        {
+            @foreach (Projects p in Model)
+            {
+
+                <tr>
+                    <td>@p.ProjType</td>
+                    <td>@p.IsComplete</td>
+                    <td>@p.OrderedDate</td>
+                    <td>@p.Cost</td>
+                    <td><a class="btn btn-info" asp-controller="Project" asp-action="Edit" asp-route-id="@p.Id">Edit</a></td>
+                </tr>
+
+            }
+        }
+        
+
+    </tbody>
+</table>

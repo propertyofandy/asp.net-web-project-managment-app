@@ -1,0 +1,61 @@
+﻿@using PROJECT.Models
+@model IEnumerable<Customer>
+@{
+    
+    Layout = "_Layout";
+    ViewBag.Title = "ListAll";
+}
+    <h1>Customer List</h1>
+    <form asp-action="ListAll" method="get">
+        <p>
+        <input type="text" name="searchString" value="@ViewBag.SearchString" id="Search"/>
+        <button type="submit">Search</button>
+        <button onclick="ResetOnClick();">Reset</button>
+        </p>
+    </form>
+@if(Model.Count() == 0)
+{
+    <p color="red">No resaults found</p>
+}
+else
+{
+    <div asp-validation-summary="All"></div>
+    <table class="table table-hover">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">First</th>
+                <th scope="col">Last</th>
+                <th scope="col">Balance</th>
+                <th scope="col">Address</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Show</th>
+                <th scope="col">Projects</th>
+            </tr>
+        </thead>
+        <tbody >
+                @foreach(Customer c in Model)
+                {
+                
+                    <tr>   
+                        <td>@c.FirstName</td>
+                        <td>@c.LastName</td>
+                        <td>@ViewBag.balances[c.Id]</td>
+                        <td>@c.Address</td>
+                        <td>@c.PhoneNumber</td>
+                        <td><a class="btn btn-info" asp-controller="Customer" asp-action="Edit" asp-route-id="@c.Id">Edit</a></td>
+                        <td><a class="btn btn-info" asp-controller="Customer" asp-action="ShowDetails" asp-route-id="@c.Id">Show</a></td>
+                        <td><a class="btn btn-info" asp-controller="Project"  asp-action="CustomerProjects" asp-route-id="@c.Id">Projects</a></td>
+                    </tr> 
+                
+                }
+        </tbody>
+    </table>
+}
+<script>
+    <!--
+    const ResetOnClick = () => {
+        document.getElementById("Search").value = null; 
+    }
+    -->
+</script>

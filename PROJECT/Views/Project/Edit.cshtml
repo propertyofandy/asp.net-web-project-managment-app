@@ -1,0 +1,43 @@
+﻿@model Projects
+
+@{
+    Layout = "_Layout";
+    ViewBag.Title = "Edit Project";
+}
+
+<div asp-validation-summary="All"></div>
+
+@if (Model != null)
+{
+    <form asp-controller="Project" asp-action="Edit">
+        @*
+    using table to align input fields
+    *@
+        <table>
+            <tr>
+                <td> <label asp-for="ProjType">  </label> </td>
+                <td> <select asp-for="ProjType" asp-items="@Html.GetEnumSelectList(typeof(ProjectType))"></select> </td>
+            </tr>
+            <tr>
+                <td> <label asp-for="IsComplete"></label> </td>
+                <td> <input asp-for="IsComplete" /> </td>
+            </tr>
+            <tr>
+                <td> <label asp-for="OrderedDate"></label> </td>
+                <td> <input asp-for="OrderedDate" /> </td>
+            </tr>
+
+            <tr>
+                <td> <label asp-for="Cost"></label> </td>
+                <td> <input asp-for="Cost" /> </td>
+            </tr>
+
+            <input type="hidden" asp-for="Id" value="@Model.Id"/>
+        </table>
+        <input type="submit" />
+    </form>
+}
+else
+{
+    <h1>SORRY SOMETHING WENT WRONG!!!!</h1>
+}
